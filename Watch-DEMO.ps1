@@ -16,8 +16,7 @@ Get-Verb | Select-Object Verb, Group, Description
     Demo Part 2
     Introduction aux tests unitaires avec Pester (30 mins)
         •	Anatomie d’une suite de test Pester
-            o	Describe, Context, It
-                - Given When Then vs AAA    
+            o	Describe, Context, It  
             o	Setup and Teardown hooks
             o	TestDrive    
         •	Assertions

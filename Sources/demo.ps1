@@ -6,7 +6,7 @@
     Get the deployment logs from the deployment database.
     Can be filtered either by id or by environment.
 
-    .PARAMETER DeploymentPath
+    .PARAMETER DeploymentLogPath
     The path to the Json file containing the deployment logs
 
     .PARAMETER Identity
@@ -20,16 +20,8 @@ function global:Get-DeploymentLog {
     Param (
         [ValidateScript({$_ | Test-Path -PathType Leaf})]
         [Parameter(Mandatory)]
-        [string]$DeploymentLogsPath,
+        [string]$DeploymentLogPath,
 
-        [ValidateScript({
-            try {
-                [System.Guid]::Parse($_) | Out-Null
-                $true
-            } catch {
-                $false
-            }
-        })]
         [Parameter(ValueFromPipeline)]
         [string]$Identity,
 
@@ -39,16 +31,19 @@ function global:Get-DeploymentLog {
 
     Write-Verbose "[Get-DeploymentLog]Entering function scope"
 
-    # Get un json avec le model
-    $models = Get-Content $DeploymentLogsPath | ConvertFrom-Json
+    Write-Verbose "Obtaining all models"
+    $models = Get-Content $DeploymentLogPath | ConvertFrom-Json
 
     if(![string]::IsNullOrEmpty($Identity)) {
-        # return specific model
+        Write-Verbose "Identity parameter is specified"
+        return $models.Logs | Where-Object { $_.Identity -eq $Identity }
     }
 
     if(![string]::IsNullOrEmpty($Environment)) {
-        # return filtered models
+        Write-Verbose "Environment parameter is specified"
+        return $models.Logs | Where-Object { $_.Environment -eq $Environment }
     }
 
-    return $models
+    Write-Verbose "No filters detected! returning ALL THEN DEPLOYMENTS"
+    return $models.Logs
 }

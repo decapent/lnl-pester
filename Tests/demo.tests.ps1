@@ -24,7 +24,8 @@ Describe ": Given the Demo tools" {
             $directoryPath = $TestDrive
             $validPath = ".\demo.json"
             
-            $unresolvedIdentity = "ABCD"
+            $invalidIdentity = "ABCD"
+            $validIdentity = "5"
             
             $invalidEnvironment = "BANANA"
             $validEnvironment = "QA"
@@ -33,21 +34,21 @@ Describe ": Given the Demo tools" {
         It "Throws if the path to the logs is not a file (directory specified)" {
             { Get-DeploymentLog `
                 -DeploymentLogPath $directoryPath `
-                -Identity $unresolvedIdentity `
+                -Identity $validIdentity `
                 -Environment $validEnvironment } | Should -Throw
         }
 
         It "Throws if the path to the logs is invalid (the path does not resolves to anything)" {
             { Get-DeploymentLog `
                 -DeploymentLogPath $invalidPath `
-                -Identity $unresolvedIdentity `
+                -Identity $validIdentity `
                 -Environment $validEnvironment } | Should -Throw
         }
 
         It "Throws if the specified Environment is not part of the accepted set" {
             { Get-DeploymentLog `
                 -DeploymentLogPath $directoryPath `
-                -Identity $unresolvedIdentity `
+                -Identity $validIdentity `
                 -Environment $invalidEnvironment } | Should -Throw
         }
 
@@ -62,13 +63,13 @@ Describe ": Given the Demo tools" {
 
         It "Fetches no deployment log for an unresolved Identity" {
             # Act
-            $logs = Get-DeploymentLog -DeploymentLogPath $validPath -Identity $unresolvedIdentity
+            $logs = Get-DeploymentLog -DeploymentLogPath $validPath -Identity $invalidIdentity
 
             # Assert
             $logs.Count | Should -Be 0
         }
 
-        It "Fetches a specific deployment for a valid Identity specified from the pipeline" {
+        It "Fetches a specific deployment for a piped through, valid Identity" {
             # Arrange
             $validLog = Get-DeploymentLog -DeploymentLogPath $validPath | Select-Object -First 1
 

@@ -13,9 +13,18 @@
 # Trouve ton verbe
 Get-Verb | Select-Object Verb, Group, Description
 
-# Dot source et verbose
+# Dot source
 . .\Sources\demo.ps1
+
+# Verbose
 Get-DeploymentLog -DeploymentLogPath '.\Tests\Test Data\demo.json' -Verbose
+
+# ValueFromPipeline
+"5" | Get-DeploymentLog -DeploymentLogPath '.\Tests\Test Data\demo.json' -Verbose
+
+# Validate Set
+Get-DeploymentLog -DeploymentLogPath '.\Tests\Test Data\demo.json' -Verbose -Environment "BANANA"
+Get-DeploymentLog -DeploymentLogPath '.\Tests\Test Data\demo.json' -Verbose -Environment "QA"
 
 <#
     Demo Part 2
@@ -56,4 +65,4 @@ Invoke-Pester ".\Tests\demo.tests.ps1" `
 #>
 Invoke-ScriptAnalyzer '.\Sources\'
 Invoke-ScriptAnalyzer '.\Sources\' -ExcludeRule "PSAvoidTrailingWhitespace"
-Get-ScriptAnalyzerRule 
+Get-ScriptAnalyzerRule

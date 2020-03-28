@@ -21,7 +21,7 @@ Get-Verb | Select-Object Verb, Group, Description
             o	TestDrive    
         •	Assertions
         •	Metriques
-        •	AzureDevOps (si on a le temps)
+        •	AzureDevOps Pipeline
 #>
 
 <#
@@ -50,7 +50,5 @@ Invoke-Pester ".\Tests\demo.tests.ps1" `
     Metric #3. CODE ANALYSIS
 #>
 Invoke-ScriptAnalyzer '.\Sources\'
-
-Get-ScriptAnalyzerRule 
-
 Invoke-ScriptAnalyzer '.\Sources\' -ExcludeRule "PSAvoidTrailingWhitespace"
+Get-ScriptAnalyzerRule 

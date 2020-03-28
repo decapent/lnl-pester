@@ -10,7 +10,7 @@
     The path to the Json file containing the deployment logs
 
     .PARAMETER Identity
-    The deployment's specific Id. Stored as a GUID
+    The deployment's specific Id.
 
     .PARAMETER Environment
     The targeted environment... Kappa

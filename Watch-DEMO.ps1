@@ -5,7 +5,7 @@
         •	CmdletBinding – Qu’est-ce que ça change ?
         •	Comment Based Help – Pourquoi, pour qui ?
         •	Validations des intrants
-            o	Parameter Attribute
+            o	Parameter Attributes
             o	Validate Set
             o	Validate Script
 #>
@@ -17,8 +17,9 @@ Get-Verb | Select-Object Verb, Group, Description
     Introduction aux tests unitaires avec Pester (30 mins)
         •	Anatomie d’une suite de test Pester
             o	Describe, Context, It
+                - Given When Then vs AAA    
             o	Setup and Teardown hooks
-            o	TestDrive
+            o	TestDrive    
         •	Assertions
         •	Metriques
         •	AzureDevOps (si on a le temps)

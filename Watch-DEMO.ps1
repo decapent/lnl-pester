@@ -10,7 +10,12 @@
             o	Validate Script
 #>
 
+# Trouve ton verbe
 Get-Verb | Select-Object Verb, Group, Description
+
+# Dot source et verbose
+. .\Sources\demo.ps1
+Get-DeploymentLog -DeploymentLogPath '.\Tests\Test Data\demo.json' -Verbose
 
 <#
     Demo Part 2

@@ -1,6 +1,7 @@
 <#
     Demo Part 1
     PowerShell Tips n tricks (20 mins)
+        •	Mise en contexte
         •	Naming Convention – Verb-Noun Syntax
         •	Comment Based Help – Pourquoi, pour qui ?
         •	CmdletBinding – Qu’est-ce que ça change ?

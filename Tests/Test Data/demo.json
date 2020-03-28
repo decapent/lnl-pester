@@ -1,4 +1,7 @@
 {
+    "ProductName" : "Product",
+    "Company" : "Contoso",
+    "Description" : "Such product, very insightful, much needed",
     "Logs" : [
         {
             "Identity" : "1",

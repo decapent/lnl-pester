@@ -6,13 +6,14 @@ Describe ": Given the Demo tools" {
         # Source demo tools function
         . $(Resolve-Path "..\Sources\demo.ps1")
 
-        # Copying Test data to Test Drive        
+        # Copying Test data to Test Drive
         $testData = Resolve-Path ".\Test Data"
         Get-ChildItem $testData -Recurse | Copy-Item -Destination $TestDrive
         Set-Location $TestDrive
     }
 
     AfterAll {
+        # Default the location back to where the operator launched the script
         Pop-Location
     }
 
@@ -51,8 +52,6 @@ Describe ": Given the Demo tools" {
         }
 
         It "Fetches all the deployment logs if not filters are specified" {
-            # Arrange
-
             # Act
             $logs = Get-DeploymentLog -DeploymentLogPath $validPath
 
@@ -62,8 +61,6 @@ Describe ": Given the Demo tools" {
         }
 
         It "Fetches no deployment log for an unresolved Identity" {
-            # Arrange
-
             # Act
             $logs = Get-DeploymentLog -DeploymentLogPath $validPath -Identity $unresolvedIdentity
 

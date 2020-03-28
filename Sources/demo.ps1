@@ -31,19 +31,19 @@ function global:Get-DeploymentLog {
 
     Write-Verbose "[Get-DeploymentLog]Entering function scope"
 
-    Write-Verbose "Obtaining all models"
-    $models = Get-Content $DeploymentLogPath | ConvertFrom-Json
+    Write-Verbose "Obtaining all the deployments"
+    $data = Get-Content $DeploymentLogPath | ConvertFrom-Json
 
     if(![string]::IsNullOrEmpty($Identity)) {
-        Write-Verbose "Identity parameter is specified"
-        return $models.Logs | Where-Object { $_.Identity -eq $Identity }
+        Write-Verbose "Identity parameter is specified, returning a collection of one"
+        return $data.Logs | Where-Object { $_.Identity -eq $Identity }
     }
 
     if(![string]::IsNullOrEmpty($Environment)) {
-        Write-Verbose "Environment parameter is specified"
-        return $models.Logs | Where-Object { $_.Environment -eq $Environment }
+        Write-Verbose "Environment parameter is specified, returning a collection of many"
+        return $data.Logs | Where-Object { $_.Environment -eq $Environment }
     }
 
-    Write-Verbose "No filters detected! returning ALL THEN DEPLOYMENTS"
-    return $models.Logs
+    Write-Verbose "No filters detected! returning ALL THE THINGS!"
+    return $data.Logs
 }

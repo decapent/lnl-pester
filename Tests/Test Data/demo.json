@@ -1,0 +1,46 @@
+{
+    "DeploymentLogs" : [
+        {
+            "Identity" : "",
+            "Environment" : "DEV",
+            "DateDeployed" : "March 27, 2020 10:10:25 PM",
+            "Succeded" : true
+        },
+        {
+            "Identity" : "decapent",
+            "Environment" : "DEV",
+            "DateDeployed" : "March 27, 2020 10:10:25 PM",
+            "Succeded" : false
+        },
+        {
+            "Identity" : "decapent",
+            "Environment" : "DEV",
+            "DateDeployed" : "March 27, 2020 10:10:25 PM",
+            "Succeded" : true
+        },
+        {
+            "Identity" : "decapent",
+            "Environment" : "QA",
+            "DateDeployed" : "March 27, 2020 10:10:25 PM",
+            "Succeded" : false
+        },
+        {
+            "Identity" : "decapent",
+            "Environment" : "QA",
+            "DateDeployed" : "March 27, 2020 10:10:25 PM",
+            "Succeded" : false
+        },
+        {
+            "Identity" : "decapent",
+            "Environment" : "QA",
+            "DateDeployed" : "March 27, 2020 10:10:25 PM",
+            "Succeded" : true
+        },
+        {
+            "Identity" : "decapent",
+            "Environment" : "PROD",
+            "DateDeployed" : "March 27, 2020 10:10:25 PM",
+            "Succeded" : true
+        }
+    ]
+}

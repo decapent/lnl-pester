@@ -1,0 +1,39 @@
+pool:
+  name: Azure Pipelines
+#Your build pipeline references a secret variable named ‘NuGetAPIKey’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
+
+steps:
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet '
+
+- task: PowerShell@2
+  displayName: 'Install required PowerShell module'
+  inputs:
+    targetType: filePath
+    filePath: './Install-CIPipelineModules.ps1'
+    failOnStderr: true
+
+- task: richardfennellBM.BM-VSTS-PesterRunner-Task.Pester-Task.Pester@6
+  displayName: 'Run Tests'
+  inputs:
+    scriptFolder: '$(Build.SourcesDirectory)\**\*'
+    CodeCoverageOutputFile: '$(Build.SourcesDirectory)\Coverage-Pester.XML'
+    excludeTag: Linter
+    ForceUseOfPesterInTasks: true
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  inputs:
+    testResultsFormat: NUnit
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage'
+  inputs:
+    summaryFileLocation: '$(Build.SourcesDirectory)\Coverage-Pester.XML'
+
+- task: PowerShell@2
+  displayName: 'Publish to PowerShell Gallery'
+  inputs:
+    targetType: filePath
+    filePath: './Publish-msdevmtl.ps1'
+    arguments: '-NuGetApiKey $(NuGetAPIKey)'

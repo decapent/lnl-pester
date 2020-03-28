@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="7" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2020-03-28" time="10:13:19">
+  <environment cwd="D:\dev\lnl-pester" user="laval" os-version="10.0.18362" nunit-version="2.5.8.0" machine-name="POAT-MACHINA" clr-version="Unknown" user-domain="POAT-MACHINA" platform="Microsoft Windows 10 Pro|C:\Windows|\Device\Harddisk1\Partition1" />
+  <culture-info current-culture="en-CA" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Success" success="True" time="0.2288" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name=".\Tests\demo.tests.ps1" executed="True" result="Success" success="True" time="0.2288" asserts="0" description=".\Tests\demo.tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name=": Given the Demo tools" executed="True" result="Success" success="True" time="0.2123" asserts="0" description=": Given the Demo tools">
+            <results>
+              <test-suite type="TestFixture" name="-&gt; When obtaining the deployment logs from the database" executed="True" result="Success" success="True" time="0.1569" asserts="0" description="-&gt; When obtaining the deployment logs from the database">
+                <results>
+                  <test-case description="Throws if the path to the logs is not a file (directory specified)" name=": Given the Demo tools.-&gt; When obtaining the deployment logs from the database.Throws if the path to the logs is not a file (directory specified)" time="0.0064" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Throws if the path to the logs is invalid (the path does not resolves to anything)" name=": Given the Demo tools.-&gt; When obtaining the deployment logs from the database.Throws if the path to the logs is invalid (the path does not resolves to anything)" time="0.0046" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Throws if the specified Environment is not part of the accepted set" name=": Given the Demo tools.-&gt; When obtaining the deployment logs from the database.Throws if the specified Environment is not part of the accepted set" time="0.0064" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Fetches all the deployment logs if not filters are specified" name=": Given the Demo tools.-&gt; When obtaining the deployment logs from the database.Fetches all the deployment logs if not filters are specified" time="0.0081" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Fetches no deployment log for an unresolved Identity" name=": Given the Demo tools.-&gt; When obtaining the deployment logs from the database.Fetches no deployment log for an unresolved Identity" time="0.0076" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Fetches a specific deployment for a valid Identity specified from the pipeline" name=": Given the Demo tools.-&gt; When obtaining the deployment logs from the database.Fetches a specific deployment for a valid Identity specified from the pipeline" time="0.01" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Fetches a filtered subset of deployment for a valid Environment" name=": Given the Demo tools.-&gt; When obtaining the deployment logs from the database.Fetches a filtered subset of deployment for a valid Environment" time="0.0118" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

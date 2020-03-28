@@ -2,7 +2,7 @@ Describe ': Given the PowerShell Scripts Analyzer' -Tags @("Linter") {
     BeforeAll {
         Push-Location $PSScriptRoot
         $scriptsToAnalyze = Get-ChildItem "..\Sources\" -Recurse
-        $rules = Get-ScriptAnalyzerRule
+        $rules = Get-ScriptAnalyzerRule | Where-Object {$_.RuleName -ne "PSAvoidTrailingWhitespace"}
     }
 
     AfterAll {

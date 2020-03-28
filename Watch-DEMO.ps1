@@ -40,10 +40,10 @@ Invoke-Pester ".\Tests\demo.tests.ps1" `
 <#
     Metric #2. CODE COVERAGE
 #>
-Invoke-Pester ".\Tests\Dummy.tests.ps1" `
+Invoke-Pester ".\Tests\demo.tests.ps1" `
     -OutputFormat NUnitXml `
     -OutputFile ".\Tests\logs\Test-Pester.XML" `
-    -CodeCoverage @('.\Sources\Dummy.ps1') `
+    -CodeCoverage @('.\Sources\demo.ps1') `
     -CodeCoverageOutputFile ".\Tests\logs\Coverage-Pester.xml"
 
 <#
@@ -51,6 +51,6 @@ Invoke-Pester ".\Tests\Dummy.tests.ps1" `
 #>
 Invoke-ScriptAnalyzer '.\Sources\'
 
-Get-ScriptAnalyzerRule
+Get-ScriptAnalyzerRule 
 
-Invoke-ScriptAnalyzer '.\Sources\' -ExcludeRule "PSUseOutputTypeCorrectly"
+Invoke-ScriptAnalyzer '.\Sources\' -ExcludeRule "PSAvoidTrailingWhitespace"
